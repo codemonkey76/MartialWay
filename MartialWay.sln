@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartialWay.Server", "Martia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartialWay.DesktopClient", "MartialWay\MartialWay.DesktopClient\MartialWay.DesktopClient.csproj", "{5E7B9908-83F1-4AAC-B150-63B1BCC7398B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E95277FF-2FE6-4656-B394-19281AF0D487}"
+	ProjectSection(SolutionItems) = preProject
+		MartialWay\Publish\MartialWay v0.1.001.zip = MartialWay\Publish\MartialWay v0.1.001.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

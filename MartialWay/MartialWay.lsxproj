@@ -22,7 +22,7 @@
     <ApplicationServerType>LocalHost</ApplicationServerType>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>MartialWay</ApplicationName>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
@@ -33,8 +33,8 @@
     <AddAdministrator>False</AddAdministrator>
     <BootstrapperComponentsUrl />
     <DefaultInstallLocation>MartialWay</DefaultInstallLocation>
-    <DeploySchema>True</DeploySchema>
-    <PublishLocation>C:\Users\shane\Desktop</PublishLocation>
+    <DeploySchema>False</DeploySchema>
+    <PublishLocation>Publish</PublishLocation>
     <PublishNewDatabase>True</PublishNewDatabase>
     <PublishUrl />
     <PublishSite>Default Web Site/MartialWay</PublishSite>
