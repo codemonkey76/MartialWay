@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.MartialWay.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Student" />
+      <DefaultScreen
+        Value="StudentDetail">
+        <DefaultScreen.Attributes>
+          <ScreenParameterMapping
+            KeyProperty="Student/Properties[Id]"
+            ScreenParameter="StudentDetail/Properties[StudentId]" />
+        </DefaultScreen.Attributes>
+      </DefaultScreen>
+      <SummaryProperty
+        Property="Student/Properties[FullName]" />
+    </EntityType.Attributes>
+    <EntityType.Properties>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Student/Properties[FullName]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+</Application>
