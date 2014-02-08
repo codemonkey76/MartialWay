@@ -29,5 +29,11 @@ namespace LightSwitchApplication
             // Write your code here.
             this.SetDisplayNameFromEntity(this.Student);
         }
+
+        partial void OpenNextOfKinTable_Execute()
+        {
+            this.Application.ShowMaintainNextOfKins();
+
+        }
     }
 }

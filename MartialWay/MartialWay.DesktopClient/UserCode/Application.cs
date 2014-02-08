@@ -11,9 +11,5 @@ namespace LightSwitchApplication
 {
     public partial class Application
     {
-        partial void StudentsListDetail_CanRun(ref bool result)
-        {
-            result = User.HasPermission(Permissions.TestPermissions);
-        }
     }
 }

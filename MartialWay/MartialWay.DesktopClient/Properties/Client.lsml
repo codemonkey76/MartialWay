@@ -43,20 +43,50 @@
   </Permission>
   <Application.Commands>
     <ApplicationCommand
-      Name="ScreenCommandShowStudentsListDetail"
-      Target="!module/Methods[ShowStudentsListDetail]" />
+      Name="ScreenCommandShowMaintainRanks"
+      Target="!module/Methods[ShowMaintainRanks]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowListStudents"
+      Target="!module/Methods[ShowListStudents]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowMaintainRelationships"
+      Target="!module/Methods[ShowMaintainRelationships]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowMaintainNextOfKins"
+      Target="!module/Methods[ShowMaintainNextOfKins]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowMaintainGradings"
+      Target="!module/Methods[ShowMaintainGradings]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowMaintainStudentsGrading"
+      Target="!module/Methods[ShowMaintainStudentsGrading]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="Tasks"
-      DefaultItem="!module/NavigationItems[Tasks]/Children[StudentsListDetail]">
+      DefaultItem="!module/NavigationItems[Tasks]/Children[ListStudents]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="StudentsListDetail"
-        Command="!module/Commands[ScreenCommandShowStudentsListDetail]" />
+        Name="MaintainRanks"
+        Command="!module/Commands[ScreenCommandShowMaintainRanks]" />
+      <ApplicationNavigationLink
+        Name="ListStudents"
+        Command="!module/Commands[ScreenCommandShowListStudents]" />
+      <ApplicationNavigationLink
+        Name="MaintainRelationships"
+        Command="!module/Commands[ScreenCommandShowMaintainRelationships]" />
+      <ApplicationNavigationLink
+        Name="MaintainNextOfKins"
+        Command="!module/Commands[ScreenCommandShowMaintainNextOfKins]" />
+      <ApplicationNavigationLink
+        Name="MaintainGradings"
+        Command="!module/Commands[ScreenCommandShowMaintainGradings]" />
+      <ApplicationNavigationLink
+        Name="MaintainStudentsGrading"
+        Command="!module/Commands[ScreenCommandShowMaintainStudentsGrading]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

@@ -8,6 +8,8 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:Student" />
+      <SummaryProperty
+        Property="Student/Properties[FullName]" />
       <DefaultScreen
         Value="StudentDetail">
         <DefaultScreen.Attributes>
@@ -16,8 +18,6 @@
             ScreenParameter="StudentDetail/Properties[StudentId]" />
         </DefaultScreen.Attributes>
       </DefaultScreen>
-      <SummaryProperty
-        Property="Student/Properties[FullName]" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <EntityProperty>
@@ -25,6 +25,20 @@
           <Computed />
           <Proxy
             Target="LightSwitchServiceApplication:Student/Properties[FullName]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Student/Properties[AddressSummary]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Student/Properties[Age]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>

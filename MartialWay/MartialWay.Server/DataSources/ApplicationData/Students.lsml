@@ -57,11 +57,31 @@
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
+          <Attribute
+            Class="Microsoft.LightSwitch.Extensions:@PhoneNumberValidation">
+            <Property
+              Name="Formats"
+              Value="AAAA NNN NNN;+CC AAA NNN NNN;AAAANNNNNN;+CCAAANNNNNN" />
+          </Attribute>
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
         Name="Phone"
         PropertyType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <Attribute
+            Class="Microsoft.LightSwitch.Extensions:@PhoneNumberValidation">
+            <Property
+              Name="Formats"
+              Value="(AA) NNNN NNNN;+CC A NNNN NNNN;AA NNNN NNNN;AA NNNNNNNN;AANNNNNNNN;NNNN NNNN;NNNNNNNN" />
+          </Attribute>
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Email"
+        PropertyType="Microsoft.LightSwitch.Extensions:EmailAddress?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
@@ -138,11 +158,6 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="NextOfKins"
-        Association="Student_NextOfKin"
-        FromEnd="Student"
-        ToEnd="NextOfKin" />
       <EntityProperty
         Name="FullName"
         PropertyType=":String">
@@ -150,6 +165,36 @@
           <Computed />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Rank"
+        Association="Student_Rank"
+        FromEnd="Student"
+        ToEnd="Rank" />
+      <EntityProperty
+        Name="AddressSummary"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="NextOfKinJoins"
+        Association="NextOfKinJoin_Student"
+        FromEnd="Student"
+        ToEnd="NextOfKinJoin" />
+      <EntityProperty
+        Name="Age"
+        PropertyType=":Int16">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="StudentGradings"
+        Association="StudentGrading_Student"
+        FromEnd="Student"
+        ToEnd="StudentGrading" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -294,57 +339,113 @@
       </QueryOperationParameter>
     </QueryOperation>
     <AssociationSet
-      Name="Student_NextOfKins"
-      Association="Student_NextOfKin">
+      Name="NextOfKinJoin_Students"
+      Association="NextOfKinJoin_Student">
+      <AssociationSetEnd
+        Name="NextOfKinJoin"
+        EntitySet="NextOfKinJoins" />
       <AssociationSetEnd
         Name="Student"
         EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet
+      Name="StudentGrading_Students"
+      Association="StudentGrading_Student">
       <AssociationSetEnd
-        Name="NextOfKin"
-        EntitySet="NextOfKins" />
+        Name="StudentGrading"
+        EntitySet="StudentGradings" />
+      <AssociationSetEnd
+        Name="Student"
+        EntitySet="Students" />
     </AssociationSet>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="Students">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Student_Rank"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="NextOfKinJoin_Students">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="NextOfKinJoin_Students" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[NextOfKinJoin_Students]/Members[NextOfKinJoin]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="NextOfKinJoin_Student" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[NextOfKinJoin_Students]/Members[Student]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="StudentGrading_Students">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="StudentGrading_Students" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGrading_Students]/Members[StudentGrading]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="StudentGrading_Student" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGrading_Students]/Members[Student]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
   <Association
-    Name="Student_NextOfKin">
+    Name="NextOfKinJoin_Student">
+    <AssociationEnd
+      Name="NextOfKinJoin"
+      Multiplicity="Many"
+      EntityType="NextOfKinJoin" />
     <AssociationEnd
       Name="Student"
       Multiplicity="One"
       EntityType="Student">
       <AssociationEnd.Attributes>
         <DeleteRule
-          Action="Cascade" />
+          Action="Restrict" />
       </AssociationEnd.Attributes>
     </AssociationEnd>
-    <AssociationEnd
-      Name="NextOfKin"
-      Multiplicity="Many"
-      EntityType="NextOfKin" />
   </Association>
-  <DataService
-    Name="ApplicationDataMapping">
-    <DataService.Attributes>
-      <Partial />
-    </DataService.Attributes>
-    <AssociationSetMapping
-      AssociationSet="Student_NextOfKins">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Student_NextOfKins" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Student_NextOfKins]/Members[Student]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Student_NextOfKins]/Members[NextOfKin]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Student_NextOfKin" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-  </DataService>
+  <Association
+    Name="StudentGrading_Student">
+    <AssociationEnd
+      Name="StudentGrading"
+      Multiplicity="Many"
+      EntityType="StudentGrading" />
+    <AssociationEnd
+      Name="Student"
+      Multiplicity="One"
+      EntityType="Student">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>
