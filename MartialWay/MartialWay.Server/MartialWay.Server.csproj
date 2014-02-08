@@ -203,6 +203,7 @@
     <Compile Include="DataSources\ApplicationData\Rank.lsml.cs">
       <DependentUpon>Ranks.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,7 +214,9 @@
   <ItemGroup>
     <_ServerFile Include="LogIn.aspx" />
     <_ServerFile Include="LogOut.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Students.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\NextOfKins.lsml" />
@@ -233,6 +236,10 @@
     <LightSwitchModel Include="DataSources\ApplicationData\StudentGradings.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\GreaterRanksByAge.lsml">
       <DependentUpon>Ranks.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\StudentNotesSet.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\StudentsWithAge.lsml">
+      <DependentUpon>Students.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

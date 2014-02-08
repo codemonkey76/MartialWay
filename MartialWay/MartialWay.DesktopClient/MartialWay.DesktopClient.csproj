@@ -270,6 +270,7 @@
     <LightSwitchModel Include="Screens\MaintainNextOfKins.lsml" />
     <LightSwitchModel Include="Screens\MaintainGradings.lsml" />
     <LightSwitchModel Include="Screens\MaintainStudentsGrading.lsml" />
+    <LightSwitchModel Include="Screens\SearchStudentsWithAge.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

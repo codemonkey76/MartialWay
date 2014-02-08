@@ -196,6 +196,19 @@
         FromEnd="Student"
         ToEnd="StudentGrading" />
       <EntityProperty
+        Name="Active"
+        PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="StudentNotesCollection"
+        Association="StudentNotes_Student"
+        FromEnd="Student"
+        ToEnd="StudentNotes" />
+      <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
         PropertyType=":Person?">
@@ -358,6 +371,16 @@
         Name="Student"
         EntitySet="Students" />
     </AssociationSet>
+    <AssociationSet
+      Name="StudentNotes_Students"
+      Association="StudentNotes_Student">
+      <AssociationSetEnd
+        Name="StudentNotes"
+        EntitySet="StudentNotesSet" />
+      <AssociationSetEnd
+        Name="Student"
+        EntitySet="Students" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -415,6 +438,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="StudentNotes_Students">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="StudentNotes_Students" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentNotes_Students]/Members[StudentNotes]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="StudentNotes_Student" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentNotes_Students]/Members[Student]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="NextOfKinJoin_Student">
@@ -438,6 +482,22 @@
       Name="StudentGrading"
       Multiplicity="Many"
       EntityType="StudentGrading" />
+    <AssociationEnd
+      Name="Student"
+      Multiplicity="One"
+      EntityType="Student">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="StudentNotes_Student">
+    <AssociationEnd
+      Name="StudentNotes"
+      Multiplicity="Many"
+      EntityType="StudentNotes" />
     <AssociationEnd
       Name="Student"
       Multiplicity="One"

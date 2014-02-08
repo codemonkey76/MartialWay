@@ -60,6 +60,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowMaintainStudentsGrading"
       Target="!module/Methods[ShowMaintainStudentsGrading]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSearchStudentsWithAge"
+      Target="!module/Methods[ShowSearchStudentsWithAge]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -87,6 +90,9 @@
       <ApplicationNavigationLink
         Name="MaintainStudentsGrading"
         Command="!module/Commands[ScreenCommandShowMaintainStudentsGrading]" />
+      <ApplicationNavigationLink
+        Name="SearchStudentsWithAge"
+        Command="!module/Commands[ScreenCommandShowSearchStudentsWithAge]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

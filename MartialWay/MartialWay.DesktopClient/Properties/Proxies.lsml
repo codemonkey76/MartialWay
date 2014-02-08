@@ -70,4 +70,16 @@
         Target="ServiceInterface:StudentGrading_Rank" />
     </Association.Attributes>
   </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentNotes" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentNotes_Student" />
+    </Association.Attributes>
+  </Association>
 </Application>

@@ -11,6 +11,42 @@ namespace LightSwitchApplication
 {
     public partial class ListStudents
     {
+        partial void ListStudents_Created()
+        {
+            this.EnableFiltering = false;
+            Filtering(this.EnableFiltering);
+        }
+        partial void EnableFiltering_Changed()
+        {
+            Filtering(this.EnableFiltering);
+        }
+        public void Filtering(bool enable)
+        {
+            if (enable)
+            {
+                var di = this.FindControl("DisplayInactive");
+                di.IsVisible = true;
+                var min = this.FindControl("MinAge");
+                min.IsVisible = true;
+                var max = this.FindControl("MaxAge");
+                max.IsVisible = true;
+                MinAge = 3;
+                MaxAge = 15;
+                DisplayInactive = false;
+            }
+            else
+            {
+                var di = this.FindControl("DisplayInactive");
+                di.IsVisible = false;
+                var min = this.FindControl("MinAge");
+                min.IsVisible = false;
+                var max = this.FindControl("MaxAge");
+                max.IsVisible = false;
+                DisplayInactive = true;
+                MinAge = 0;
+                MaxAge = 999;
+            }
+        }
         partial void NewNextOfKin_Execute()
         {
             this.Application.ShowMaintainNextOfKins();
@@ -24,8 +60,8 @@ namespace LightSwitchApplication
 
         partial void gridAddAndEditNew_Execute()
         {
-            Student newStudent = this.Students.AddNew();
-            this.Students.SelectedItem = newStudent;
+            Student newStudent = this.StudentsWithAge.AddNew();
+            this.StudentsWithAge.SelectedItem = newStudent;
             this.OpenModalWindow("StudentEditDialog");
         }
 
