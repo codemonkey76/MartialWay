@@ -37,10 +37,10 @@
         FromEnd="NextOfKinJoin"
         ToEnd="Student" />
       <NavigationProperty
-        Name="Relationships"
-        Association="NextOfKinJoin_Relationships"
+        Name="Relationship"
+        Association="NextOfKinJoin_Relationship"
         FromEnd="NextOfKinJoin"
-        ToEnd="Relationships" />
+        ToEnd="Relationship" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"

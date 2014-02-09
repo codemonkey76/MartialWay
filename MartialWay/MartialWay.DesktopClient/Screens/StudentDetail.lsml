@@ -339,7 +339,7 @@
                 <ContentItem
                   Name="Relationships"
                   Kind="Details"
-                  DataType="Relationships">
+                  DataType="Relationship">
                   <ContentItem.Attributes>
                     <DisplayName
                       Value="Relationship to Student" />
@@ -348,14 +348,14 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="NextOfKinJoin/Properties[Relationships]" />
+                          Member="NextOfKinJoin/Properties[Relationship]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
                     Name="Relationships1"
                     Kind="Details"
-                    DataType="Relationships">
+                    DataType="Relationship">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression />

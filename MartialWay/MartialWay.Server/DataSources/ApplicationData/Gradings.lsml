@@ -64,6 +64,11 @@
         Association="StudentGrading_Grading"
         FromEnd="Grading"
         ToEnd="StudentGrading" />
+      <NavigationProperty
+        Name="Promotions"
+        Association="Promotion_Grading"
+        FromEnd="Grading"
+        ToEnd="Promotion" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -217,6 +222,16 @@
         Name="Grading"
         EntitySet="Gradings" />
     </AssociationSet>
+    <AssociationSet
+      Name="Promotion_Gradings"
+      Association="Promotion_Grading">
+      <AssociationSetEnd
+        Name="Promotion"
+        EntitySet="Promotions" />
+      <AssociationSetEnd
+        Name="Grading"
+        EntitySet="Gradings" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="StudentGrading_Grading">
@@ -260,5 +275,42 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Promotion_Gradings">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Promotion_Gradings" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Gradings]/Members[Promotion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Promotion_Grading" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Gradings]/Members[Grading]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
+  <Association
+    Name="Promotion_Grading">
+    <AssociationEnd
+      Name="Promotion"
+      Multiplicity="Many"
+      EntityType="Promotion" />
+    <AssociationEnd
+      Name="Grading"
+      Multiplicity="One"
+      EntityType="Grading">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

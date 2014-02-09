@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="StudentNotes">
+    Name="StudentNote">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -37,8 +37,8 @@
       </EntityProperty>
       <NavigationProperty
         Name="Student"
-        Association="StudentNotes_Student"
-        FromEnd="StudentNotes"
+        Association="StudentNote_Student"
+        FromEnd="StudentNote"
         ToEnd="Student" />
       <EntityProperty
         Name="CreatedBy"
@@ -98,14 +98,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="StudentNotesSet"
+      Name="StudentNotes"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="StudentNotes" />
+      EntityType="StudentNote" />
     <QueryOperation
-      Name="StudentNotesSet_Single"
-      ReturnType="StudentNotes">
+      Name="StudentNotes_Single"
+      ReturnType="StudentNote">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -131,7 +131,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="StudentNotesSet" />
+            Member="StudentNotes" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -144,8 +144,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="StudentNotesSet_SingleOrDefault"
-      ReturnType="StudentNotes">
+      Name="StudentNotes_SingleOrDefault"
+      ReturnType="StudentNote">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -171,7 +171,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="StudentNotesSet" />
+            Member="StudentNotes" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -190,7 +190,7 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="StudentNotesSet">
+      EntitySet="StudentNotes">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
           Name="StudentNotes_Student"

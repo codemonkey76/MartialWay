@@ -205,9 +205,14 @@
       </EntityProperty>
       <NavigationProperty
         Name="StudentNotesCollection"
-        Association="StudentNotes_Student"
+        Association="StudentNote_Student"
         FromEnd="Student"
-        ToEnd="StudentNotes" />
+        ToEnd="StudentNote" />
+      <NavigationProperty
+        Name="Promotions"
+        Association="Promotion_Student"
+        FromEnd="Student"
+        ToEnd="Promotion" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -372,11 +377,21 @@
         EntitySet="Students" />
     </AssociationSet>
     <AssociationSet
-      Name="StudentNotes_Students"
-      Association="StudentNotes_Student">
+      Name="StudentNote_Students"
+      Association="StudentNote_Student">
       <AssociationSetEnd
-        Name="StudentNotes"
-        EntitySet="StudentNotesSet" />
+        Name="StudentNote"
+        EntitySet="StudentNotes" />
+      <AssociationSetEnd
+        Name="Student"
+        EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Promotion_Students"
+      Association="Promotion_Student">
+      <AssociationSetEnd
+        Name="Promotion"
+        EntitySet="Promotions" />
       <AssociationSetEnd
         Name="Student"
         EntitySet="Students" />
@@ -439,19 +454,40 @@
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
     <AssociationSetMapping
-      AssociationSet="StudentNotes_Students">
+      AssociationSet="StudentNote_Students">
       <AssociationSetMapping.Attributes>
         <SsdlAssociationSet
           Name="StudentNotes_Students" />
         <SsdlAssociationSetEnd
-          End="ApplicationData/Members[StudentNotes_Students]/Members[StudentNotes]">
+          End="ApplicationData/Members[StudentNote_Students]/Members[StudentNote]">
           <SsdlAssociationSetEnd.Attributes>
             <SsdlPropertyRef
               Name="StudentNotes_Student" />
           </SsdlAssociationSetEnd.Attributes>
         </SsdlAssociationSetEnd>
         <SsdlAssociationSetEnd
-          End="ApplicationData/Members[StudentNotes_Students]/Members[Student]">
+          End="ApplicationData/Members[StudentNote_Students]/Members[Student]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Promotion_Students">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Promotion_Students" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Students]/Members[Promotion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Promotion_Student" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Students]/Members[Student]">
           <SsdlAssociationSetEnd.Attributes>
             <SsdlPropertyRef
               Name="Id" />
@@ -493,11 +529,27 @@
     </AssociationEnd>
   </Association>
   <Association
-    Name="StudentNotes_Student">
+    Name="StudentNote_Student">
     <AssociationEnd
-      Name="StudentNotes"
+      Name="StudentNote"
       Multiplicity="Many"
-      EntityType="StudentNotes" />
+      EntityType="StudentNote" />
+    <AssociationEnd
+      Name="Student"
+      Multiplicity="One"
+      EntityType="Student">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="Promotion_Student">
+    <AssociationEnd
+      Name="Promotion"
+      Multiplicity="Many"
+      EntityType="Promotion" />
     <AssociationEnd
       Name="Student"
       Multiplicity="One"

@@ -105,6 +105,11 @@
         Association="StudentGrading_Rank"
         FromEnd="Rank"
         ToEnd="StudentGrading" />
+      <NavigationProperty
+        Name="Promotions"
+        Association="Promotion_Rank"
+        FromEnd="Rank"
+        ToEnd="Promotion" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -268,6 +273,16 @@
         Name="Rank"
         EntitySet="Ranks" />
     </AssociationSet>
+    <AssociationSet
+      Name="Promotion_Ranks"
+      Association="Promotion_Rank">
+      <AssociationSetEnd
+        Name="Promotion"
+        EntitySet="Promotions" />
+      <AssociationSetEnd
+        Name="Rank"
+        EntitySet="Ranks" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="Student_Rank">
@@ -332,6 +347,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Promotion_Ranks">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Promotion_Ranks" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Ranks]/Members[Promotion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Promotion_Rank" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Promotion_Ranks]/Members[Rank]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="StudentGrading_Rank">
@@ -339,6 +375,22 @@
       Name="StudentGrading"
       Multiplicity="Many"
       EntityType="StudentGrading" />
+    <AssociationEnd
+      Name="Rank"
+      Multiplicity="One"
+      EntityType="Rank">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="Promotion_Rank">
+    <AssociationEnd
+      Name="Promotion"
+      Multiplicity="Many"
+      EntityType="Promotion" />
     <AssociationEnd
       Name="Rank"
       Multiplicity="One"

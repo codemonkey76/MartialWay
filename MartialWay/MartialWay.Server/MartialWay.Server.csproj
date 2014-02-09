@@ -220,7 +220,7 @@
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Students.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\NextOfKins.lsml" />
-    <LightSwitchModel Include="DataSources\ApplicationData\RelationshipsSet.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Relationships.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Ranks.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\NextOfKinJoins.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\NextofKinSorted.lsml">
@@ -230,16 +230,26 @@
       <DependentUpon>Ranks.lsml</DependentUpon>
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\RelationshipsSorted.lsml">
-      <DependentUpon>RelationshipsSet.lsml</DependentUpon>
+      <DependentUpon>Relationships.lsml</DependentUpon>
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\Gradings.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\StudentGradings.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\GreaterRanksByAge.lsml">
       <DependentUpon>Ranks.lsml</DependentUpon>
     </LightSwitchModel>
-    <LightSwitchModel Include="DataSources\ApplicationData\StudentNotesSet.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\StudentNotes.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\StudentsWithAge.lsml">
       <DependentUpon>Students.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\Promotions.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\GradingsByDate.lsml">
+      <DependentUpon>Gradings.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\ActiveStudents.lsml">
+      <DependentUpon>Students.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\GetNextRank.lsml">
+      <DependentUpon>Ranks.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

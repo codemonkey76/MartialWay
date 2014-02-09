@@ -246,6 +246,9 @@
     <Compile Include="Screens\ListStudents.lsml.cs">
       <DependentUpon>ListStudents.lsml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\MaintainStudentsGrading.lsml.cs">
+      <DependentUpon>MaintainStudentsGrading.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\StudentDetail.lsml.cs">
       <DependentUpon>StudentDetail.lsml</DependentUpon>
     </Compile>
@@ -271,6 +274,7 @@
     <LightSwitchModel Include="Screens\MaintainGradings.lsml" />
     <LightSwitchModel Include="Screens\MaintainStudentsGrading.lsml" />
     <LightSwitchModel Include="Screens\SearchStudentsWithAge.lsml" />
+    <LightSwitchModel Include="Screens\EditableStudentsGrid.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

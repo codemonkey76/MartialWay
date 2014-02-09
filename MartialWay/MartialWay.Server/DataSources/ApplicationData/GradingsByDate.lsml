@@ -10,22 +10,23 @@
       <Partial />
     </EntityContainer.Attributes>
     <QueryOperation
-      Name="RelationshipsSorted"
-      ReturnType="Relationship*">
+      Name="GradingsByDate"
+      ReturnType="Grading*">
       <QueryOperation.FilterExpression>
         <QueryFilterExpressionTree />
       </QueryOperation.FilterExpression>
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Relationships" />
+            Member="Gradings" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperation.SortCriteria>
-        <SortCriterion>
+        <SortCriterion
+          Direction="Descending">
           <ChainExpression>
             <MemberExpression
-              Member="RelationshipType" />
+              Member="EventDate" />
           </ChainExpression>
         </SortCriterion>
       </QueryOperation.SortCriteria>

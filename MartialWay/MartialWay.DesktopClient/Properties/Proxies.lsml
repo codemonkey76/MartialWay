@@ -13,7 +13,7 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:Relationships" />
+        Target="ServiceInterface:Relationship" />
     </EntityType.Attributes>
   </EntityType>
   <Association>
@@ -43,7 +43,7 @@
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:NextOfKinJoin_Relationships" />
+        Target="ServiceInterface:NextOfKinJoin_Relationship" />
     </Association.Attributes>
   </Association>
   <EntityType>
@@ -73,13 +73,37 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:StudentNotes" />
+        Target="ServiceInterface:StudentNote" />
     </EntityType.Attributes>
   </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:StudentNotes_Student" />
+        Target="ServiceInterface:StudentNote_Student" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Promotion" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Promotion_Grading" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Promotion_Student" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Promotion_Rank" />
     </Association.Attributes>
   </Association>
 </Application>

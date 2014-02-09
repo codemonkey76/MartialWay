@@ -932,7 +932,7 @@
                     <ContentItem
                       Name="Relationships"
                       Kind="Details"
-                      DataType="Relationships">
+                      DataType="Relationship">
                       <ContentItem.Attributes>
                         <DisplayName
                           Value="Relationship To Student" />
@@ -941,14 +941,14 @@
                         <ScreenExpressionTree>
                           <ChainExpression>
                             <MemberExpression
-                              Member="NextOfKinJoin/Properties[Relationships]" />
+                              Member="NextOfKinJoin/Properties[Relationship]" />
                           </ChainExpression>
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
                       <ContentItem
                         Name="Relationships1"
                         Kind="Details"
-                        DataType="Relationships">
+                        DataType="Relationship">
                         <ContentItem.DataSource>
                           <ScreenExpressionTree>
                             <ChainExpression />
@@ -995,7 +995,7 @@
                 <ContentItem
                   Name="StudentNotesCollection"
                   Kind="Collection"
-                  DataType="CollectionView$StudentNotes">
+                  DataType="CollectionView$StudentNote">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -1007,7 +1007,7 @@
                   <ContentItem
                     Name="StudentNotesCollectionTemplate"
                     Kind="Details"
-                    DataType="StudentNotes">
+                    DataType="StudentNote">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression />
@@ -1021,7 +1021,7 @@
                         <ScreenExpressionTree>
                           <ChainExpression>
                             <MemberExpression
-                              Member="StudentNotes/Properties[Note]" />
+                              Member="StudentNote/Properties[Note]" />
                           </ChainExpression>
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
@@ -1056,7 +1056,7 @@
                         <ScreenExpressionTree>
                           <ChainExpression>
                             <MemberExpression
-                              Member="StudentNotes/Properties[Created]" />
+                              Member="StudentNote/Properties[Created]" />
                           </ChainExpression>
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
@@ -1071,6 +1071,148 @@
                           <ChainExpression>
                             <MemberExpression
                               Member="ListStudents/Properties[StudentNotesCollection]" />
+                            <CallExpression
+                              Target="DeleteSelected" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem.CommandItems>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:CollectionControlSupportingExport/Properties[HideExportButton]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="Group7"
+                Kind="Group">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Promotions" />
+                </ContentItem.Attributes>
+                <ContentItem
+                  Name="Promotions"
+                  Kind="Collection"
+                  DataType="CollectionView$Promotion">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Student Promotion History" />
+                  </ContentItem.Attributes>
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ListStudents/Properties[Promotions]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="PromotionsTemplate"
+                    Kind="Details"
+                    DataType="Promotion">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Grading"
+                      Kind="Details"
+                      DataType="Grading">
+                      <ContentItem.ChoicesSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ListStudents/Properties[GradingsByDate]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.ChoicesSource>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="Promotion/Properties[Grading]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="Grading1"
+                        Kind="Details"
+                        DataType="Grading"
+                        View="Microsoft.LightSwitch.RichClient:Summary">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem
+                          Name="EventDate"
+                          Kind="Value"
+                          DataType=":DateTime">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Grading/Properties[EventDate]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Summary"
+                          Kind="Value"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Grading/Properties[Summary]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Rank"
+                      Kind="Details"
+                      DataType="Rank">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="Promotion/Properties[Rank]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="Rank2"
+                        Kind="Details"
+                        DataType="Rank">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                      </ContentItem>
+                    </ContentItem>
+                  </ContentItem>
+                  <ContentItem.CommandItems>
+                    <ContentItem
+                      Name="Promotions_DeleteSelected"
+                      Kind="Command">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ListStudents/Properties[Promotions]" />
                             <CallExpression
                               Target="DeleteSelected" />
                           </ChainExpression>
@@ -1258,11 +1400,11 @@
       <ScreenCollectionProperty
         Name="StudentNotesCollection"
         PageSize="45"
-        PropertyType="CollectionView$StudentNotes">
+        PropertyType="CollectionView$StudentNote">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
             Name="StudentNotesCollectionQuery"
-            ReturnType="StudentNotes*">
+            ReturnType="StudentNote*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
@@ -1328,6 +1470,64 @@
           <ChainExpression>
             <CallExpression
               Target="ListStudents/Properties[NextOfKinJoins]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="Promotions"
+        PageSize="45"
+        PropertyType="CollectionView$Promotion">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="PromotionsQuery"
+            ReturnType="Promotion*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ListStudents/Properties[StudentsWithAge]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Promotions" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ListStudents/Properties[Promotions]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="GradingsByDate"
+        PageSize="45"
+        PropertyType="CollectionView$Grading">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="GradingsByDateQuery"
+            ReturnType="Grading*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[GradingsByDate]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ListStudents/Properties[GradingsByDate]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>

@@ -21,7 +21,7 @@
           <ContentItem
             Name="grid"
             Kind="Collection"
-            DataType="CollectionView$Relationships">
+            DataType="CollectionView$Relationship">
             <ContentItem.Attributes>
               <DisplayName
                 Value="Relationships" />
@@ -37,7 +37,7 @@
             <ContentItem
               Name="RowTemplate"
               Kind="Details"
-              DataType="Relationships">
+              DataType="Relationship">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression />
@@ -51,7 +51,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Relationships/Properties[RelationshipType]" />
+                        Member="Relationship/Properties[RelationshipType]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -169,18 +169,18 @@
         DisablePaging="True"
         DisableSearch="True"
         PageSize="45"
-        PropertyType="CollectionView$Relationships">
+        PropertyType="CollectionView$Relationship">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
             Name="RelationshipsSetQuery"
-            ReturnType="Relationships*">
+            ReturnType="Relationship*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[RelationshipsSet]" />
+                  Member="ApplicationData/Members[Relationships]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>

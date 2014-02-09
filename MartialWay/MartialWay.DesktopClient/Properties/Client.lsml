@@ -63,6 +63,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowSearchStudentsWithAge"
       Target="!module/Methods[ShowSearchStudentsWithAge]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowEditableStudentsGrid"
+      Target="!module/Methods[ShowEditableStudentsGrid]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -93,6 +96,9 @@
       <ApplicationNavigationLink
         Name="SearchStudentsWithAge"
         Command="!module/Commands[ScreenCommandShowSearchStudentsWithAge]" />
+      <ApplicationNavigationLink
+        Name="EditableStudentsGrid"
+        Command="!module/Commands[ScreenCommandShowEditableStudentsGrid]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

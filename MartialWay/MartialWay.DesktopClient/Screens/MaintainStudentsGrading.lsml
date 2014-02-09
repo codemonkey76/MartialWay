@@ -285,6 +285,14 @@
                   Name="Student"
                   Kind="Details"
                   DataType="Student">
+                  <ContentItem.ChoicesSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="MaintainStudentsGrading/Properties[ActiveStudents]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.ChoicesSource>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -397,6 +405,18 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
+                <ContentItem
+                  Name="AddAllActiveStudents"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="MaintainStudentsGrading/Methods[AddAllActiveStudents]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
               </ContentItem.CommandItems>
               <ContentItem.PropertySources>
                 <ControlPropertySource
@@ -498,6 +518,8 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="AddAllActiveStudents" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -517,6 +539,15 @@
                   Member="ApplicationData/Members[Gradings]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.SortCriteria>
+              <SortCriterion
+                Direction="Descending">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="EventDate" />
+                </ChainExpression>
+              </SortCriterion>
+            </ScreenQueryDefinition.SortCriteria>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
@@ -610,6 +641,32 @@
                 </ChainExpression>
               </ArgumentExpression>
             </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="ActiveStudents"
+        PageSize="45"
+        PropertyType="CollectionView$Student">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ActiveStudentsQuery"
+            ReturnType="Student*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[ActiveStudents]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="MaintainStudentsGrading/Properties[ActiveStudents]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>

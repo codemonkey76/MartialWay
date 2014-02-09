@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Relationships">
+    Name="Relationship">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -38,8 +38,8 @@
       </EntityProperty>
       <NavigationProperty
         Name="NextOfKinJoins"
-        Association="NextOfKinJoin_Relationships"
-        FromEnd="Relationships"
+        Association="NextOfKinJoin_Relationship"
+        FromEnd="Relationship"
         ToEnd="NextOfKinJoin" />
       <EntityProperty
         Name="CreatedBy"
@@ -99,14 +99,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="RelationshipsSet"
+      Name="Relationships"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Relationships" />
+      EntityType="Relationship" />
     <QueryOperation
-      Name="RelationshipsSet_Single"
-      ReturnType="Relationships">
+      Name="Relationships_Single"
+      ReturnType="Relationship">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -132,7 +132,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="RelationshipsSet" />
+            Member="Relationships" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -145,8 +145,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="RelationshipsSet_SingleOrDefault"
-      ReturnType="Relationships">
+      Name="Relationships_SingleOrDefault"
+      ReturnType="Relationship">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -172,7 +172,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="RelationshipsSet" />
+            Member="Relationships" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -185,26 +185,26 @@
       </QueryOperationParameter>
     </QueryOperation>
     <AssociationSet
-      Name="NextOfKinJoin_RelationshipsSet"
-      Association="NextOfKinJoin_Relationships">
+      Name="NextOfKinJoin_Relationships"
+      Association="NextOfKinJoin_Relationship">
       <AssociationSetEnd
         Name="NextOfKinJoin"
         EntitySet="NextOfKinJoins" />
       <AssociationSetEnd
-        Name="Relationships"
-        EntitySet="RelationshipsSet" />
+        Name="Relationship"
+        EntitySet="Relationships" />
     </AssociationSet>
   </EntityContainer>
   <Association
-    Name="NextOfKinJoin_Relationships">
+    Name="NextOfKinJoin_Relationship">
     <AssociationEnd
       Name="NextOfKinJoin"
       Multiplicity="Many"
       EntityType="NextOfKinJoin" />
     <AssociationEnd
-      Name="Relationships"
+      Name="Relationship"
       Multiplicity="One"
-      EntityType="Relationships">
+      EntityType="Relationship">
       <AssociationEnd.Attributes>
         <DeleteRule
           Action="Restrict" />
@@ -217,19 +217,19 @@
       <Partial />
     </DataService.Attributes>
     <AssociationSetMapping
-      AssociationSet="NextOfKinJoin_RelationshipsSet">
+      AssociationSet="NextOfKinJoin_Relationships">
       <AssociationSetMapping.Attributes>
         <SsdlAssociationSet
           Name="NextOfKinJoin_RelationshipsSet" />
         <SsdlAssociationSetEnd
-          End="ApplicationData/Members[NextOfKinJoin_RelationshipsSet]/Members[NextOfKinJoin]">
+          End="ApplicationData/Members[NextOfKinJoin_Relationships]/Members[NextOfKinJoin]">
           <SsdlAssociationSetEnd.Attributes>
             <SsdlPropertyRef
               Name="NextOfKinJoin_Relationships" />
           </SsdlAssociationSetEnd.Attributes>
         </SsdlAssociationSetEnd>
         <SsdlAssociationSetEnd
-          End="ApplicationData/Members[NextOfKinJoin_RelationshipsSet]/Members[Relationships]">
+          End="ApplicationData/Members[NextOfKinJoin_Relationships]/Members[Relationship]">
           <SsdlAssociationSetEnd.Attributes>
             <SsdlPropertyRef
               Name="Id" />
