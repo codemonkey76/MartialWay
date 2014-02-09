@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.MartialWay.HTMLClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Grading" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:NextOfKinJoin" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:NextOfKin" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Rank" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Relationships" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentGrading" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentNotes" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Student" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Proxy
+        Target="ServiceInterface:ApplicationData" />
+    </EntityContainer.Attributes>
+  </EntityContainer>
+  <Association
+    Name="StudentGrading_Grading">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentGrading_Grading" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="NextOfKinJoin_NextOfKin">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:NextOfKinJoin_NextOfKin" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="Student_Rank">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Student_Rank" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="StudentGrading_Rank">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentGrading_Rank" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="NextOfKinJoin_Relationships">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:NextOfKinJoin_Relationships" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="NextOfKinJoin_Student">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:NextOfKinJoin_Student" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="StudentGrading_Student">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentGrading_Student" />
+    </Association.Attributes>
+  </Association>
+  <Association
+    Name="StudentNotes_Student">
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:StudentNotes_Student" />
+    </Association.Attributes>
+  </Association>
+</Application>
