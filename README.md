@@ -17,4 +17,4 @@ Double-Underlined
 **Surrounding text with double asterix's**
 
 
-[Square bracketed text]
+[Square bracketed text followed by bracketed url](http://www.bjja.com.au)
