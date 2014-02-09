@@ -14,7 +14,7 @@ Double-Underlined
 ## Starting a line with a double-hash
 
 
-** Surrounding text with double asterix's **
+**Surrounding text with double asterix's**
 
 
 [Square bracketed text]
